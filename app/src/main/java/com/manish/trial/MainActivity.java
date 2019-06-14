@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         mainRecycle = findViewById(R.id.main_recycle);
 
-        final MainAdapter mainAdapter = new MainAdapter(mainData);
+        final MainAdapter mainAdapter = new MainAdapter(mainData,this);
         mainRecycle.setAdapter(mainAdapter);
         mainRecycle.setHasFixedSize(true);
         mainRecycle.setLayoutManager(new LinearLayoutManager(this));

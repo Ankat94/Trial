@@ -1,11 +1,15 @@
 package com.manish.trial;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -13,9 +17,11 @@ import java.util.ArrayList;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainHolder> {
 
     ArrayList<MainData> mainData;
+    Context context;
 
-    public MainAdapter(ArrayList<MainData> mainData) {
+    public MainAdapter(ArrayList<MainData> mainData, Context context) {
         this.mainData = mainData;
+        this.context = context;
     }
 
     @NonNull
@@ -27,10 +33,30 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MainHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MainHolder holder, final int position) {
 
         holder.mainText.setText(mainData.get(position).name);
         holder.tag.setText(mainData.get(position).tag);
+
+        switch (mainData.get(position).color) {
+            case "green":
+                holder.tag.setTextColor(ContextCompat.getColor(context,R.color.green));
+                break;
+
+            case "red":
+                holder.tag.setTextColor(ContextCompat.getColor(context,R.color.red));
+                break;
+        }
+
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                CriteriaActivity.mainData = mainData.get(position);
+                Intent criteriaIntent = new Intent(context,CriteriaActivity.class);
+                context.startActivity(criteriaIntent);
+            }
+        });
 
     }
 
@@ -43,12 +69,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainHolder> {
 
         TextView mainText;
         TextView tag;
+        ConstraintLayout mainLayout;
 
         public MainHolder(View itemView) {
             super(itemView);
 
             mainText = itemView.findViewById(R.id.main_text);
             tag = itemView.findViewById(R.id.main_tag);
+            mainLayout = itemView.findViewById(R.id.main_layout);
         }
     }
 }

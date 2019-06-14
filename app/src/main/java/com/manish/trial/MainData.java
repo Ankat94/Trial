@@ -1,5 +1,6 @@
 package com.manish.trial;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,6 +20,15 @@ public class MainData {
         this.name = object.getString("name");
         this.tag = object.getString("tag");
         this.color = object.getString("color");
+
+        JSONArray jsonArray = object.getJSONArray("criteria");
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            Criteria criteria = new Criteria(jsonObject);
+            criterias.add(criteria);
+        }
 
     }
 }
