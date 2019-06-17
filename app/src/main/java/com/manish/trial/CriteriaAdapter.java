@@ -34,6 +34,12 @@ public class CriteriaAdapter extends RecyclerView.Adapter<CriteriaAdapter.Criter
 
         holder.name.setText(criteria.get(position).text);
 
+        if ((position + 1) == criteria.size()){
+            holder.tag.setVisibility(View.INVISIBLE);
+        }
+        else {
+            holder.tag.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

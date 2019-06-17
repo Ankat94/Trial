@@ -1,6 +1,7 @@
 package com.manish.trial;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,6 +29,16 @@ public class CriteriaActivity extends AppCompatActivity {
 
         title.setText(mainData.name);
         tag.setText(mainData.tag);
+
+        switch (mainData.color) {
+            case "green":
+                tag.setTextColor(ContextCompat.getColor(this,R.color.green));
+                break;
+
+            case "red":
+                tag.setTextColor(ContextCompat.getColor(this,R.color.red));
+                break;
+        }
 
         CriteriaAdapter criteriaAdapter = new CriteriaAdapter(mainData.criterias,this);
         criteriaRecycele.setHasFixedSize(true);

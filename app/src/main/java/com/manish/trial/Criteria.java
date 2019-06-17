@@ -15,5 +15,28 @@ public class Criteria {
 
         this.type = object.getString("type");
         this.text = object.getString("text");
+
+        if (this.type.equalsIgnoreCase("variable")) {
+
+            int start = 0;
+            boolean loop;
+            do {
+                int index = this.text.indexOf("$",start + 1);
+                if (index > start) {
+                    start = index;
+
+                    String s = this.text.substring(start, start + 2);
+                    JSONObject variableObject = object.getJSONObject("variable");
+                    JSONObject data = variableObject.getJSONObject(s);
+                    Variable variable = new Variable(data);
+                    variables.add(variable);
+                    loop = true;
+                }
+                else {
+                    loop = false;
+                }
+            }while (loop);
+
+        }
     }
 }
