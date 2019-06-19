@@ -1,4 +1,4 @@
-package com.manish.trial;
+package com.manish.trial.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;

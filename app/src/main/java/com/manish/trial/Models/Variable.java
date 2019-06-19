@@ -1,4 +1,4 @@
-package com.manish.trial;
+package com.manish.trial.Models;
 
 import android.util.Log;
 

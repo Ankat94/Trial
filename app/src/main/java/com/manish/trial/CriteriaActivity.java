@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.manish.trial.Adapter.CriteriaAdapter;
+import com.manish.trial.Models.MainData;
 
 public class CriteriaActivity extends AppCompatActivity {
 

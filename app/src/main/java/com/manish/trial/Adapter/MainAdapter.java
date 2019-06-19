@@ -1,4 +1,4 @@
-package com.manish.trial;
+package com.manish.trial.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.manish.trial.CriteriaActivity;
+import com.manish.trial.Models.MainData;
+import com.manish.trial.R;
 
 import java.util.ArrayList;
 

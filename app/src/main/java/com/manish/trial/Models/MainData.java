@@ -1,4 +1,6 @@
-package com.manish.trial;
+package com.manish.trial.Models;
+
+import com.manish.trial.Models.Criteria;
 
 import org.json.JSONArray;
 import org.json.JSONException;

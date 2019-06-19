@@ -1,9 +1,10 @@
-package com.manish.trial;
+package com.manish.trial.Utils;
 
 import android.util.Log;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.manish.trial.Utils.Data_Callback;
 
 import org.json.JSONArray;
 import org.json.JSONException;
