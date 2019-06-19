@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         ManagerData.Get_Call(new Data_Callback() {
             @Override
             public void handler(JSONArray jsonArray) throws JSONException {
+                Log.d("Data Check", jsonArray.toString());
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject parseData = jsonArray.getJSONObject(i);
                     MainData data = new MainData(parseData);

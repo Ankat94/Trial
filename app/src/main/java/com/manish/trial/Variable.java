@@ -1,21 +1,25 @@
 package com.manish.trial;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Variable {
 
-    private String type;
-    private int[] values;
-    private String studyType;
-    private String parameterName;
-    private int minValue;
-    private int maxValue;
-    private int defaultValue;
+    public String type;
+    public int[] values;
+    public String studyType;
+    public String parameterName;
+    public int minValue;
+    public int maxValue;
+    public int defaultValue;
+    public int pos = 0;
 
     public Variable(JSONObject object) throws JSONException {
 
+        Log.d("vvv", object.toString());
         this.type = object.getString("type");
 
         switch (type) {

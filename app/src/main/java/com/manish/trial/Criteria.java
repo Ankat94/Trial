@@ -1,15 +1,24 @@
 package com.manish.trial;
 
+import android.util.Log;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import javax.xml.validation.Validator;
 
 public class Criteria {
 
     public String type;
     public String text;
     public ArrayList<Variable> variables = new ArrayList<>();
+    public Map<String, Variable> variableMap = new HashMap<String,Variable>();
 
     public Criteria(JSONObject object) throws JSONException {
 
@@ -18,6 +27,18 @@ public class Criteria {
 
         if (this.type.equalsIgnoreCase("variable")) {
 
+            JSONObject variableObject = object.getJSONObject("variable");
+            Iterator<String> key = variableObject.keys();
+
+            while (key.hasNext()) {
+                String value = key.next();
+                variableMap.put(value, new Variable(variableObject.getJSONObject(value)));
+            }
+
+
+            //variables.add(new Variable(object.getJSONObject("variable")));
+
+            /*
             int start = 0;
             boolean loop;
             do {
@@ -35,7 +56,7 @@ public class Criteria {
                 else {
                     loop = false;
                 }
-            }while (loop);
+            }while (loop);*/
 
         }
     }
